@@ -14,8 +14,10 @@ import java.io.FileOutputStream;
 
 /**
  * Created by huayong on 2016/6/15.
+ * 外部存储中的缓存机制
  */
 public class DiskCache implements ImgCache{
+    // 缓存路径
     private String cacheDir = Environment.getExternalStoragePublicDirectory(
             Environment.DIRECTORY_DCIM).getPath()+"/ImgCache/";
 
@@ -36,6 +38,7 @@ public class DiskCache implements ImgCache{
         ensureDirExists();
     }
 
+    // 确保缓存路径真实存在
     private void ensureDirExists() {
         File dir = new File(cacheDir);
         if (!dir.exists()) {

@@ -6,6 +6,7 @@ import com.fanhy.cache.ImgCache;
 
 /**
  * Created by huayong on 2016/6/20.
+ * 双缓存机制
  */
 public class DoubleCache implements ImgCache{
     ImgCache memeryCache = new MemeryCache();

@@ -8,6 +8,7 @@ import com.fanhy.util.MD5Utils;
 
 /**
  * Created by huayong on 2016/6/15.
+ * 内存中的缓存机制
  */
 public class MemeryCache implements ImgCache {
     private LruCache<String, Bitmap> mCache;
@@ -17,8 +18,11 @@ public class MemeryCache implements ImgCache {
     }
 
     private void initCache() {
+        // 获取当前进程的最大内存
         final int maxMemery = (int) (Runtime.getRuntime().maxMemory() / 1024);
+        // 取当前进程最大内存的四分之一作为最大缓存空间
         final int cacheSize = maxMemery / 4;
+        // 初始化LruCache对象
         mCache = new LruCache<String, Bitmap>(cacheSize){
             @Override
             protected int sizeOf(String key, Bitmap value) {

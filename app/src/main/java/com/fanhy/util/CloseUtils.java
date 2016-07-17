@@ -5,6 +5,7 @@ import java.io.IOException;
 
 /**
  * Created by huayong on 2016/6/20.
+ * 关闭操作封装工具类
  */
 public class CloseUtils {
     public static void closeQuietly(Closeable closeable){

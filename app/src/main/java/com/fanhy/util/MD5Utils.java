@@ -5,6 +5,7 @@ import java.security.NoSuchAlgorithmException;
 
 /**
  * Created by huayong on 2016/6/20.
+ * MD5加密实现
  */
 public class MD5Utils {
     // 全局数组
