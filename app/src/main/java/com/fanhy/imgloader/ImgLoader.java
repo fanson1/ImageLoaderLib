@@ -65,6 +65,7 @@ public class ImgLoader {
         submitLoadRequest(url, imageView);
     }
 
+    // 提交图片下载请求到线程池中
     private void submitLoadRequest(final String url, final ImageView imageView) {
         imageView.setTag(MD5Utils.GetMD5Code(url));
         executorService.submit(new Runnable() {
@@ -82,6 +83,8 @@ public class ImgLoader {
 
         });
     }
+
+    // 下载图片
     private  Bitmap downloadImg(String url) {
         Bitmap bmp = null;
         try {
