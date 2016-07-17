@@ -16,12 +16,29 @@ import java.io.FileOutputStream;
  * Created by huayong on 2016/6/15.
  */
 public class DiskCache implements ImgCache{
-    private static String cacheDir = Environment.getExternalStoragePublicDirectory(
+    private String cacheDir = Environment.getExternalStoragePublicDirectory(
             Environment.DIRECTORY_DCIM).getPath()+"/ImgCache/";
 
     public DiskCache(){
+        ensureDirExists();
+    }
+
+    public DiskCache(String cacheDir) {
+        this.cacheDir = cacheDir;
+        ensureDirExists();
+    }
+
+    /**
+     * 设置外部存储缓存路径
+     */
+    public void setCacheDir(String cacheDir) {
+        this.cacheDir = cacheDir;
+        ensureDirExists();
+    }
+
+    private void ensureDirExists() {
         File dir = new File(cacheDir);
-        if (!dir.exists()){
+        if (!dir.exists()) {
             dir.mkdirs();
         }
     }
